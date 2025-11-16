@@ -8,15 +8,16 @@ const themeToggleMobile = $('#themeToggleMobile');
 function setTheme(isDark) {
   if (isDark) document.documentElement.classList.add('dark');
   else document.documentElement.classList.remove('dark');
-
-  const icon = isDark ? "🌙" : "☀️";
+  const icon = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
   if (themeToggle) themeToggle.textContent = icon;
   if (themeToggleMobile) themeToggleMobile.textContent = icon;
 }
 
-// Apply saved theme or default light
+// Apply saved theme or default to dark
 const saved = localStorage.getItem('theme');
-setTheme(saved === 'dark');
+const isDark = saved ? saved === 'dark' : true; // default to dark
+setTheme(isDark);
+
 
 // Desktop toggle
 themeToggle?.addEventListener('click', () => {
@@ -35,4 +36,19 @@ themeToggleMobile?.addEventListener('click', () => {
 // -------------------- ACCESSIBILITY (TAB OUTLINE) --------------------
 document.addEventListener('keydown', e => { 
   if(e.key === 'Tab') document.documentElement.classList.add('show-focus'); 
+});
+
+
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const hamburgerIcon = document.getElementById('hamburgerIcon');
+const closeIcon = document.getElementById('closeIcon');
+
+hamburger?.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+
+  // Toggle icons
+  hamburgerIcon.classList.toggle('hidden');
+  closeIcon.classList.toggle('hidden');
 });

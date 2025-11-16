@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projects — Mandar Kulkarni</title>
+  <link rel="icon" href="/favicon.png" type="image/x-icon" />
+
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -32,57 +34,212 @@
     <div class="absolute w-[450px] h-[450px] bg-cyan-500/20 dark:bg-cyan-500/30 rounded-full blur-3xl bottom-20 right-20 float-2"></div>
   </div>
 
-  <!-- NAVBAR -->
-  <header class="fixed top-0 w-full z-40 transition-smooth bg-white/0 dark:bg-[#0b0b0d]/0 p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
+    <!-- NAVBAR -->
+    <header
+      class="fixed top-0 left-0 w-full z-40 bg-white/0 dark:bg-[#0b0b0d]/0 transition-smooth shadow-sm"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center justify-between p-4 md:p-6"
+      >
+        <!-- Logo -->
+        <a href="/home.html" class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-black"
+          >
+            M
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-semibold text-gray-900 dark:text-gray-100"
+              >Mandar Kulkarni</span
+            >
+            <span
+              class="text-xs text-gray-600 dark:text-gray-400  max-w-[100px]"
+              >Fullstack • Developer</span
+            >
+          </div>
+        </a>
 
-      <a href="/home.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center font-bold text-black">M</div>
-        <div class="hidden sm:block">
-          <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">Mandar Kulkarni</div>
-          <div class="text-xs text-gray-600 dark:text-gray-400">Fullstack Developer</div>
-        </div>
-      </a>
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a
+            href="/home.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Home</a
+          >
+          <a
+            href="/skills.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Skills</a
+          >
+          <a
+            href="/projects.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Projects</a
+          >
+          <a
+            href="/contact.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Contact</a
+          >
+          <button id="themeToggle" class="ml-4 p-2 rounded-md glass">
+            🌙 Dark Mode
+          </button>
+          <a
+            href="/resume.pdf"
+            download
+            class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white"
+            >Resume</a
+          >
+        </nav>
+        <!-- Hamburger (Mobile) -->
+        <button
+          id="hamburger"
+          class="md:hidden p-2 rounded-md bg-gray-200 dark:bg-gray-700 relative flex items-center justify-center"
+        >
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburgerIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-gray-900 dark:text-white absolute"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
 
-      <nav class="hidden md:flex flex-nowrap items-center gap-6">
-        <a href="/home.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Home</a>
-        <a href="/skills.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Skills</a>
-        <a href="/projects.html" class="text-indigo-500 font-semibold dark:text-indigo-400">Projects</a>
-        <a href="/contact.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Contact</a>
-        <button id="themeToggle" class="ml-4 p-2 rounded-md glass">🌙</button>
-        <a href="/resume.pdf" download class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white">Resume</a>
+          <!-- Cross Icon -->
+          <svg
+            id="closeIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-red-600 absolute hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 6l12 12M6 18L18 6"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu -->
+      <nav
+        id="mobileMenu"
+        class="md:hidden hidden flex-col gap-3 p-4 mb-2 rounded-b-xl shadow-xl absolute top-full left-0 w-[calc(100%-2rem)] mx-4 z-30 bg-gradient-to-b from-indigo-50 via-white/30 to-cyan-50 dark:from-[#0b0b0d] dark:via-[#0b0b0d]/70 dark:to-[#111]"
+      >
+        <a
+          href="/home.html"
+          class="block px-4 py-2 mb-2 rounded-lg text-white bg-indigo-500 hover:bg-indigo-600 transition-colors font-medium text-center"
+          >Home</a
+        >
+
+        <a
+          href="/skills.html"
+          class="block px-4 py-2 mb-2 rounded-lg text-white bg-cyan-500 hover:bg-cyan-600 transition-colors font-medium text-center"
+          >Skills</a
+        >
+
+        <a
+          href="/projects.html"
+          class="block px-4 py-2 mb-2 rounded-lg text-white bg-purple-500 hover:bg-purple-600 transition-colors font-medium text-center"
+          >Projects</a
+        >
+
+        <a
+          href="/contact.html"
+          class="block px-4 py-2 rounded-lg text-white bg-pink-500 hover:bg-pink-600 transition-colors font-medium text-center"
+          >Contact</a
+        >
+
+        <!-- Theme toggle button -->
+        <button
+          id="themeToggleMobile"
+          class="w-full px-4 py-2 mt-2 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors font-medium"
+        >
+          🌙 Dark Mode
+        </button>
+
+        <!-- Resume button -->
+        <a
+          href="/resume.pdf"
+          download
+          class="block px-4 py-2 mt-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-center font-medium transition-colors"
+        >
+          Resume
+        </a>
       </nav>
+    </header>
 
-    </div>
-  </header>
+<!-- MAIN CONTENT -->
+<main class="pt-40 md:pt-40 pb-24 max-w-6xl mx-auto px-6">
+  <h1 class="text-4xl font-bold mb-10 text-gray-900 dark:text-white text-center">
+    My Projects
+  </h1>
 
-  <!-- MAIN CONTENT -->
-  <main class="pt-40 pb-24 max-w-5xl mx-auto px-6">
-    <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Projects</h1>
+  <div class="grid md:grid-cols-2 gap-8">
 
-    <div class="grid md:grid-cols-2 gap-8">
+    <!-- Portfolio Website -->
+    <a href="/home.html" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Portfolio Website</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript • Tailwind</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">A modern personal portfolio with animations, dark mode & responsive layout.</p>
+    </a>
 
-      <div class="glass">
-        <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Portfolio Website</h2>
-        <p class="text-gray-700 dark:text-gray-300 mb-4">HTML • CSS • JavaScript • Tailwind</p>
-        <p class="text-sm text-gray-500 dark:text-gray-400">A modern personal portfolio with animations, dark mode & responsive layout.</p>
-      </div>
+    <!-- TextUtils Web App -->
+    <a href="https://txt-util.netlify.app/?" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">TextUtils Web App</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript • React • Tailwind</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Analyze & manipulate text: word count, uppercase, lowercase, copy, clear, etc.</p>
+    </a>
 
-      <div class="glass">
-        <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Login System (JDBC)</h2>
-        <p class="text-gray-700 dark:text-gray-300 mb-4">Core Java • JDBC • MySQL</p>
-        <p class="text-sm text-gray-500 dark:text-gray-400">Authentication system using Java & JDBC with secure SQL queries.</p>
-      </div>
+    <!-- PDF Merger App -->
+    <a href="https://pdfmergerapp2025.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">PDF Merger App</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript </p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Merge multiple PDF files into a single file directly in the browser.</p>
+    </a>
 
-      <div class="glass">
-        <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Student Management (Servlet/JSP)</h2>
-        <p class="text-gray-700 dark:text-gray-300 mb-4">Java • Servlet • JSP • JDBC</p>
-        <p class="text-sm text-gray-500 dark:text-gray-400">CRUD operations with proper MVC structure and database connectivity.</p>
-      </div>
+    <!-- iTask / ToDo App -->
+    <a href="https://tasklistitems.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">iTask / ToDo App</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript • React • Tailwind</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Manage daily tasks with add, edit, delete, and local storage features.</p>
+    </a>
 
-    </div>
-  </main>
+    <!-- Currency Converter App -->
+    <a href="https://currencyappconverter.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Currency Converter App</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript  • API</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Convert currencies in real-time using live exchange rates from API.</p>
+    </a>
 
+    <!-- Unit Converter App -->
+    <a href="https://converter-unit-app.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Unit Converter App</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript </p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Convert units of length, weight, temperature, and more with ease.</p>
+    </a>
+
+    <!-- Internship Project -->
+    <a href="https://house-price-predictor-blhf.onrender.com/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
+      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">House Price Prediction</h2>
+      <p class="text-gray-700 dark:text-gray-300 mb-2">Python • Machine Learning • Data Science</p>
+      <p class="text-sm text-gray-500 dark:text-gray-400">Internship project predicting Bangalore house prices using ML models.</p>
+    </a>
+
+  </div>
+</main>
   <!-- FOOTER -->
   <footer class="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
    Built with ❤️ • HTML • JavaScript • Tailwind

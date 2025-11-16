@@ -4,20 +4,19 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact — Mandar Kulkarni</title>
+  <link rel="icon" href="/favicon.png" type="image/x-icon" />
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { darkMode: 'class' }
+    tailwind.config = { darkMode: "class" };
   </script>
 
   <style>
-    .glow { box-shadow: 0 6px 30px rgba(59,130,246,0.12), 0 2px 8px rgba(59,130,246,0.08); }
-    .transition-smooth { transition: all 300ms cubic-bezier(.22,.9,.35,1); }
-
+    /* Animations & Utilities */
     .float-1 { animation: float 7s ease-in-out infinite; }
     .float-2 { animation: float 9s ease-in-out infinite; }
-    @keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-18px) } 100% { transform: translateY(0) } }
+    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-18px); } 100% { transform: translateY(0); } }
 
     .glass {
       @apply rounded-2xl p-8 bg-white/5 dark:bg-white/10 border border-white/10 dark:border-white/20 backdrop-blur-sm;
@@ -33,46 +32,220 @@
     <div class="absolute w-[500px] h-[500px] bg-cyan-500/20 dark:bg-cyan-500/30 rounded-full blur-3xl bottom-10 right-10 float-2"></div>
   </div>
 
-  <!-- NAVBAR -->
-  <header class="fixed top-0 w-full z-40 transition-smooth bg-white/0 dark:bg-[#0b0b0d]/0 p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="/home.html" class="flex items-center gap-3">
-        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center font-bold text-black">M</div>
-        <div class="hidden sm:block">
-          <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">Mandar Kulkarni</div>
-          <div class="text-xs text-gray-600 dark:text-gray-400">Fullstack Developer</div>
-        </div>
-      </a>
+    <!-- NAVBAR -->
+    <header
+      class="fixed top-0 left-0 w-full z-40 bg-white/0 dark:bg-[#0b0b0d]/0 transition-smooth shadow-sm"
+    >
+      <div
+        class="max-w-6xl mx-auto flex items-center justify-between p-4 md:p-6"
+      >
+        <!-- Logo -->
+        <a href="/home.html" class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-black"
+          >
+            M
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-semibold text-gray-900 dark:text-gray-100"
+              >Mandar Kulkarni</span
+            >
+            <span
+              class="text-xs text-gray-600 dark:text-gray-400  max-w-[100px]"
+              >Fullstack • Developer</span
+            >
+          </div>
+        </a>
 
-      <nav class="hidden md:flex flex-nowrap items-center gap-6">
-        <a href="/home.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Home</a>
-        <a href="/skills.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Skills</a>
-        <a href="/projects.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Projects</a>
-        <a href="/contact.html" class="text-indigo-500 font-semibold dark:text-indigo-400">Contact</a>
-        <button id="themeToggle" class="ml-4 p-2 rounded-md glass">🌙</button>
-        <a href="/resume.pdf" download class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white">Resume</a>
+        <!-- Desktop Menu -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a
+            href="/home.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Home</a
+          >
+          <a
+            href="/skills.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Skills</a
+          >
+          <a
+            href="/projects.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Projects</a
+          >
+          <a
+            href="/contact.html"
+            class="text-gray-900 dark:text-gray-200 hover:text-indigo-500"
+            >Contact</a
+          >
+          <button id="themeToggle" class="ml-4 p-2 rounded-md glass">
+            🌙 Dark Mode
+          </button>
+          <a
+            href="/resume.pdf"
+            download
+            class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white"
+            >Resume</a
+          >
+        </nav>
+        <!-- Hamburger (Mobile) -->
+        <button
+          id="hamburger"
+          class="md:hidden p-2 rounded-md bg-gray-200 dark:bg-gray-700 relative flex items-center justify-center"
+        >
+          <!-- Hamburger Icon -->
+          <svg
+            id="hamburgerIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-gray-900 dark:text-white absolute"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+
+          <!-- Cross Icon -->
+          <svg
+            id="closeIcon"
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-6 w-6 text-red-600 absolute hidden"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 6l12 12M6 18L18 6"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <!-- Mobile Menu -->
+      <nav
+        id="mobileMenu"
+        class="md:hidden hidden flex-col gap-3 p-4 mb-2 rounded-b-xl shadow-xl absolute top-full left-0 w-[calc(100%-2rem)] mx-4 z-30 bg-gradient-to-b from-indigo-50 via-white/30 to-cyan-50 dark:from-[#0b0b0d] dark:via-[#0b0b0d]/70 dark:to-[#111]"
+      >
+        <a
+          href="/home.html"
+          class="block px-4 py-2 mb-2 rounded-lg text-white bg-indigo-500 hover:bg-indigo-600 transition-colors font-medium text-center"
+          >Home</a
+        >
+
+        <a
+          href="/skills.html"
+          class="block px-4 py-2 mb-2 rounded-lg text-white bg-cyan-500 hover:bg-cyan-600 transition-colors font-medium text-center"
+          >Skills</a
+        >
+
+        <a
+          href="/projects.html"
+          class="block px-4 py-2 mb-2 rounded-lg text-white bg-purple-500 hover:bg-purple-600 transition-colors font-medium text-center"
+          >Projects</a
+        >
+
+        <a
+          href="/contact.html"
+          class="block px-4 py-2 rounded-lg text-white bg-pink-500 hover:bg-pink-600 transition-colors font-medium text-center"
+          >Contact</a
+        >
+
+        <!-- Theme toggle button -->
+        <button
+          id="themeToggleMobile"
+          class="w-full px-4 py-2 mt-2 rounded-lg bg-gray-800 text-white hover:bg-gray-700 transition-colors font-medium"
+        >
+          🌙 Dark Mode
+        </button>
+
+        <!-- Resume button -->
+        <a
+          href="/resume.pdf"
+          download
+          class="block px-4 py-2 mt-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-center font-medium transition-colors"
+        >
+          Resume
+        </a>
       </nav>
-    </div>
-  </header>
+    </header>
 
   <!-- MAIN CONTENT -->
-  <main class="pt-40 pb-24 max-w-5xl mx-auto px-6">
+ <main class="pt-40 md:pt-40 pb-24 max-w-5xl mx-auto px-6">
     <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Contact Me</h1>
 
     <p class="text-gray-700 dark:text-gray-300 mb-12">
       Feel free to reach out for opportunities, collaborations, or queries.
     </p>
 
-    <div class="glass max-w-xl mx-auto">
-      <p class="text-lg mb-4 text-gray-900 dark:text-gray-100"><strong>Email:</strong> mandar.k@example.com</p>
-      <p class="text-lg mb-4 text-gray-900 dark:text-gray-100"><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-      <p class="text-lg text-gray-900 dark:text-gray-100"><strong>Location:</strong> Pune, India</p>
-    </div>
+    <div class="glass max-w-xl mx-auto space-y-4">
+      <!-- Email -->
+     <!-- Email -->
+<p class="text-lg text-gray-900 dark:text-gray-100 flex items-center gap-2">
+  <!-- Email Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12h.01M12 12h.01M8 12h.01M21 16V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h14a2 2 0 002-2z" />
+  </svg>
+  <strong>Email:</strong>
+  <a href="mailto:kulkarnimandar702@gmail.com" class="underline hover:text-indigo-500">
+    kulkarnimandar702@gmail.com
+  </a>
+</p>
+
+      <!-- Phone -->
+    <!-- Phone -->
+<p class="text-lg text-gray-900 dark:text-gray-100 flex items-center gap-2">
+  <!-- Phone Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h2l3 5-2 2 2 3 5 3v2a1 1 0 01-1 1h-2C7.477 21 3 16.523 3 11V6a1 1 0 011-1z" />
+  </svg>
+  <strong>Phone:</strong>
+  <a href="tel:+917024990349" class="underline hover:text-indigo-500">
+    +91 70249 90349
+  </a>
+</p>
+
+<!-- Location -->
+<p class="text-lg text-gray-900 dark:text-gray-100 flex items-center gap-2">
+  <!-- Location Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5 9 6.343 9 8s1.343 3 3 3z" />
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21s-6-5.333-6-10a6 6 0 1112 0c0 4.667-6 10-6 10z" />
+  </svg>
+  <strong>Location:</strong> Pune, India
+</p>
+
+
+      <!-- Socials -->
+   <div class="flex items-center gap-4 mt-4">
+  <a href="https://www.linkedin.com/in/kulkarnimandar" target="_blank" class="hover:text-indigo-500">
+    <!-- LinkedIn SVG -->
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM0 8h5v16H0V8zm7.5 0h4.7v2.2h.1c.65-1.23 2.25-2.53 4.63-2.53 4.95 0 5.87 3.26 5.87 7.5V24h-5v-7.25c0-1.73-.03-3.96-2.42-3.96-2.43 0-2.8 1.9-2.8 3.85V24h-5V8z"/>
+    </svg>
+  </a>
+  <a href="https://github.com/Mandar-123-code" target="_blank" class="hover:text-gray-500">
+    <!-- GitHub SVG -->
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.387.6.113.82-.258.82-.577v-2.234c-3.338.724-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.744.083-.729.083-.729 1.205.084 1.838 1.237 1.838 1.237 1.07 1.835 2.807 1.304 3.492.997.108-.776.418-1.305.762-1.604-2.665-.3-5.466-1.332-5.466-5.931 0-1.31.468-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.655 1.653.243 2.873.119 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.804 5.628-5.475 5.922.43.372.815 1.102.815 2.222v3.293c0 .319.218.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+    </svg>
+  </a>
+</div>
+
   </main>
 
   <!-- FOOTER -->
   <footer class="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
-     Built with ❤️ • HTML • JavaScript • Tailwind
+    Built with ❤️ • HTML • JavaScript • Tailwind
   </footer>
 
   <script src="contact.js"></script>

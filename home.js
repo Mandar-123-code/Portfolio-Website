@@ -2,29 +2,27 @@
 const $ = (q) => document.querySelector(q);
 const $$ = (q) => Array.from(document.querySelectorAll(q));
 
-// -------------------- MOBILE MENU --------------------
-const hamburger = $('#hamburger');
-const mobileMenu = $('#mobileMenu');
-hamburger?.addEventListener('click', () => {
-  mobileMenu.classList.toggle('hidden');
-});
-
 // -------------------- THEME TOGGLE --------------------
 const themeToggle = $('#themeToggle');
 const themeToggleMobile = $('#themeToggleMobile');
 
 function setTheme(isDark) {
-  if (isDark) document.documentElement.classList.add('dark');
-  else document.documentElement.classList.remove('dark');
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
 
-  const icon = isDark ? "🌙" : "☀️";
+  // Correct icon logic: 🌙 for dark, ☀️ for light
+  const icon = isDark ? "☀️ Light Mode" : "🌙 Dark Mode"; // Swap these!
   if (themeToggle) themeToggle.textContent = icon;
   if (themeToggleMobile) themeToggleMobile.textContent = icon;
 }
 
-// Apply saved theme or default light
+// Apply saved theme or default to dark
 const saved = localStorage.getItem('theme');
-setTheme(saved === 'dark');
+const isDark = saved ? saved === 'dark' : true; // default to dark
+setTheme(isDark);
 
 // Desktop toggle
 themeToggle?.addEventListener('click', () => {
@@ -40,20 +38,16 @@ themeToggleMobile?.addEventListener('click', () => {
   localStorage.setItem('theme', isDark ? 'dark' : 'light');
 });
 
-// -------------------- BACK TO TOP BUTTON --------------------
-const toTop = $('#toTop');
-window.addEventListener('scroll', () => {
-  if(toTop) {
-    if(window.scrollY > 400) toTop.classList.remove('hidden');
-    else toTop.classList.add('hidden');
-  }
-});
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+const hamburgerIcon = document.getElementById('hamburgerIcon');
+const closeIcon = document.getElementById('closeIcon');
 
-toTop?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
+hamburger?.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
 
-// -------------------- ACCESSIBILITY (TAB OUTLINE) --------------------
-document.addEventListener('keydown', e => { 
-  if(e.key === 'Tab') document.documentElement.classList.add('show-focus'); 
+  // Toggle icons
+  hamburgerIcon.classList.toggle('hidden');
+  closeIcon.classList.toggle('hidden');
 });
