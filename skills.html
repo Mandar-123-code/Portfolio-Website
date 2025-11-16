@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skills — Mandar Kulkarni</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <style>
+    /* Custom Animations & Utilities */
+    .glow { box-shadow: 0 6px 30px rgba(59,130,246,0.12), 0 2px 8px rgba(59,130,246,0.08); }
+    .transition-smooth { transition: all 300ms cubic-bezier(.22,.9,.35,1); }
+
+    .float-1 { animation: float 7s ease-in-out infinite; }
+    .float-2 { animation: float 9s ease-in-out infinite; }
+    @keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-18px) } 100% { transform: translateY(0) } }
+
+    /* Glass / Card style */
+    .glass {
+      @apply rounded-xl p-6 bg-white/5 dark:bg-white/10 border border-white/10 dark:border-white/20 backdrop-blur-sm;
+    }
+
+    /* Cursor style (if needed) */
+    .cursor {
+      display:inline-block; width:2px; height:1.2em;
+      background:black; margin-left:6px; animation: blink 1s steps(2) infinite;
+    }
+    @keyframes blink { 50% { background:white } }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-[#0b0b0d] dark:text-gray-100">
+
+  <!-- Floating Background -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-3xl top-10 left-10 float-1"></div>
+    <div class="absolute w-[600px] h-[600px] bg-cyan-400/20 rounded-full blur-3xl bottom-10 right-10 float-2"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-40 transition-smooth bg-white/0 dark:bg-[#0b0b0d]/0">
+    <div class="max-w-6xl mx-auto flex items-center justify-between p-6">
+      <a href="/home.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-500 to-cyan-400 flex items-center justify-center font-bold text-black">M</div>
+        <div class="hidden sm:block">
+          <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">Mandar Kulkarni</div>
+          <div class="text-xs text-gray-600 dark:text-gray-400">Fullstack • Developer</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="/home.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Home</a>
+        <a href="/skills.html" class="text-indigo-500 font-semibold dark:text-indigo-400">Skills</a>
+        <a href="/projects.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Projects</a>
+        <a href="/contact.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Contact</a>
+        <button id="themeToggle" class="ml-4 p-2 rounded-md glass">🌙</button>
+        <a href="/resume.pdf" download class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white">Resume</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-40 pb-24 max-w-5xl mx-auto px-6">
+    <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Skills</h1>
+
+    <p class="text-lg mb-12 text-gray-700 dark:text-gray-300">
+      A blend of frontend, backend, database & tools I work with.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Frontend -->
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Frontend</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1 bg-indigo-500/20 dark:bg-indigo-500/30 rounded text-gray-900 dark:text-gray-100">HTML</span>
+          <span class="px-3 py-1 bg-indigo-500/20 dark:bg-indigo-500/30 rounded text-gray-900 dark:text-gray-100">CSS</span>
+          <span class="px-3 py-1 bg-indigo-500/20 dark:bg-indigo-500/30 rounded text-gray-900 dark:text-gray-100">JavaScript</span>
+          <span class="px-3 py-1 bg-indigo-500/20 dark:bg-indigo-500/30 rounded text-gray-900 dark:text-gray-100">React.js</span>
+          <span class="px-3 py-1 bg-indigo-500/20 dark:bg-indigo-500/30 rounded text-gray-900 dark:text-gray-100">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Backend</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1 bg-cyan-500/20 dark:bg-cyan-500/30 rounded text-gray-900 dark:text-gray-100">Java</span>
+          <span class="px-3 py-1 bg-cyan-500/20 dark:bg-cyan-500/30 rounded text-gray-900 dark:text-gray-100">JDBC</span>
+          <span class="px-3 py-1 bg-cyan-500/20 dark:bg-cyan-500/30 rounded text-gray-900 dark:text-gray-100">Advanced Java</span>
+          <span class="px-3 py-1 bg-cyan-500/20 dark:bg-cyan-500/30 rounded text-gray-900 dark:text-gray-100">Servlets</span>
+          <span class="px-3 py-1 bg-cyan-500/20 dark:bg-cyan-500/30 rounded text-gray-900 dark:text-gray-100">JSP</span>
+        </div>
+      </div>
+
+      <!-- Databases -->
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Database</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1 bg-green-500/20 dark:bg-green-500/30 rounded text-gray-900 dark:text-gray-100">MySQL</span>
+          <span class="px-3 py-1 bg-green-500/20 dark:bg-green-500/30 rounded text-gray-900 dark:text-gray-100">MongoDB</span>
+        </div>
+      </div>
+
+      <!-- Tools -->
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Tools</h2>
+        <div class="flex flex-wrap gap-3">
+          <span class="px-3 py-1 bg-yellow-500/20 dark:bg-yellow-500/30 rounded text-gray-900 dark:text-gray-100">Git</span>
+          <span class="px-3 py-1 bg-yellow-500/20 dark:bg-yellow-500/30 rounded text-gray-900 dark:text-gray-100">GitHub</span>
+          <span class="px-3 py-1 bg-yellow-500/20 dark:bg-yellow-500/30 rounded text-gray-900 dark:text-gray-100">VS Code</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+     Built with ❤️ • HTML • JavaScript • Tailwind
+  </footer>
+
+  <!-- JS -->
+  <script src="skills.js"></script>
+</body>
+</html>

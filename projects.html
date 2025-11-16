@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projects — Mandar Kulkarni</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+
+  <style>
+    .glow { box-shadow: 0 6px 30px rgba(59,130,246,0.12), 0 2px 8px rgba(59,130,246,0.08); }
+    .transition-smooth { transition: all 300ms cubic-bezier(.22,.9,.35,1); }
+    .float-1 { animation: float 7s ease-in-out infinite; }
+    .float-2 { animation: float 9s ease-in-out infinite; }
+    @keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-18px) } 100% { transform: translateY(0) } }
+
+    .glass {
+      @apply rounded-2xl p-6 bg-white/5 dark:bg-white/10 border border-white/10 dark:border-white/20 backdrop-blur-sm;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-gray-900 dark:bg-[#0b0b0d] dark:text-gray-100">
+
+  <!-- Floating Background -->
+  <div class="fixed inset-0 -z-10 overflow-hidden">
+    <div class="absolute w-[400px] h-[400px] bg-indigo-500/20 dark:bg-indigo-500/30 rounded-full blur-3xl top-20 left-20 float-1"></div>
+    <div class="absolute w-[450px] h-[450px] bg-cyan-500/20 dark:bg-cyan-500/30 rounded-full blur-3xl bottom-20 right-20 float-2"></div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-40 transition-smooth bg-white/0 dark:bg-[#0b0b0d]/0 p-6">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+
+      <a href="/home.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 bg-gradient-to-br from-indigo-500 to-cyan-400 rounded-lg flex items-center justify-center font-bold text-black">M</div>
+        <div class="hidden sm:block">
+          <div class="text-sm font-semibold text-gray-900 dark:text-gray-100">Mandar Kulkarni</div>
+          <div class="text-xs text-gray-600 dark:text-gray-400">Fullstack Developer</div>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex flex-nowrap items-center gap-6">
+        <a href="/home.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Home</a>
+        <a href="/skills.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Skills</a>
+        <a href="/projects.html" class="text-indigo-500 font-semibold dark:text-indigo-400">Projects</a>
+        <a href="/contact.html" class="text-gray-900 dark:text-gray-200 hover:text-indigo-500">Contact</a>
+        <button id="themeToggle" class="ml-4 p-2 rounded-md glass">🌙</button>
+        <a href="/resume.pdf" download class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white">Resume</a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="pt-40 pb-24 max-w-5xl mx-auto px-6">
+    <h1 class="text-4xl font-bold mb-6 text-gray-900 dark:text-white">Projects</h1>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Portfolio Website</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">HTML • CSS • JavaScript • Tailwind</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">A modern personal portfolio with animations, dark mode & responsive layout.</p>
+      </div>
+
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Login System (JDBC)</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">Core Java • JDBC • MySQL</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Authentication system using Java & JDBC with secure SQL queries.</p>
+      </div>
+
+      <div class="glass">
+        <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Student Management (Servlet/JSP)</h2>
+        <p class="text-gray-700 dark:text-gray-300 mb-4">Java • Servlet • JSP • JDBC</p>
+        <p class="text-sm text-gray-500 dark:text-gray-400">CRUD operations with proper MVC structure and database connectivity.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+   Built with ❤️ • HTML • JavaScript • Tailwind
+  </footer>
+
+  <script src="projects.js"></script>
+</body>
+</html>
