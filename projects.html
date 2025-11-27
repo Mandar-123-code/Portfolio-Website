@@ -1,38 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Projects — Mandar Kulkarni</title>
-  <link rel="icon" href="/favicon.png" type="image/x-icon" />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects — Mandar Kulkarni</title>
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = { darkMode: "class" };
+    </script>
 
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { darkMode: 'class' }
-  </script>
+    <style>
+      .glow {
+        box-shadow: 0 6px 30px rgba(59, 130, 246, 0.12),
+          0 2px 8px rgba(59, 130, 246, 0.08);
+      }
+      .transition-smooth {
+        transition: all 300ms cubic-bezier(0.22, 0.9, 0.35, 1);
+      }
+      .float-1 {
+        animation: float 7s ease-in-out infinite;
+      }
+      .float-2 {
+        animation: float 9s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-18px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
 
-  <style>
-    .glow { box-shadow: 0 6px 30px rgba(59,130,246,0.12), 0 2px 8px rgba(59,130,246,0.08); }
-    .transition-smooth { transition: all 300ms cubic-bezier(.22,.9,.35,1); }
-    .float-1 { animation: float 7s ease-in-out infinite; }
-    .float-2 { animation: float 9s ease-in-out infinite; }
-    @keyframes float { 0% { transform: translateY(0) } 50% { transform: translateY(-18px) } 100% { transform: translateY(0) } }
+      .glass {
+        @apply rounded-2xl p-6 bg-white/5 dark:bg-white/10 border border-white/10 dark:border-white/20 backdrop-blur-sm;
+      }
+    </style>
+  </head>
 
-    .glass {
-      @apply rounded-2xl p-6 bg-white/5 dark:bg-white/10 border border-white/10 dark:border-white/20 backdrop-blur-sm;
-    }
-  </style>
-</head>
-
-<body class="bg-white text-gray-900 dark:bg-[#0b0b0d] dark:text-gray-100">
-
-  <!-- Floating Background -->
-  <div class="fixed inset-0 -z-10 overflow-hidden">
-    <div class="absolute w-[400px] h-[400px] bg-indigo-500/20 dark:bg-indigo-500/30 rounded-full blur-3xl top-20 left-20 float-1"></div>
-    <div class="absolute w-[450px] h-[450px] bg-cyan-500/20 dark:bg-cyan-500/30 rounded-full blur-3xl bottom-20 right-20 float-2"></div>
-  </div>
+  <body class="bg-white text-gray-900 dark:bg-[#0b0b0d] dark:text-gray-100">
+    <!-- Floating Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute w-[400px] h-[400px] bg-indigo-500/20 dark:bg-indigo-500/30 rounded-full blur-3xl top-20 left-20 float-1"
+      ></div>
+      <div
+        class="absolute w-[450px] h-[450px] bg-cyan-500/20 dark:bg-cyan-500/30 rounded-full blur-3xl bottom-20 right-20 float-2"
+      ></div>
+    </div>
 
     <!-- NAVBAR -->
     <header
@@ -52,8 +73,7 @@
             <span class="text-sm font-semibold text-gray-900 dark:text-gray-100"
               >Mandar Kulkarni</span
             >
-            <span
-              class="text-xs text-gray-600 dark:text-gray-400  max-w-[100px]"
+            <span class="text-xs text-gray-600 dark:text-gray-400 max-w-[100px]"
               >Fullstack • Developer</span
             >
           </div>
@@ -86,10 +106,11 @@
           </button>
           <a
             href="/resume.pdf"
-            download
+            target="_blank"
             class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white"
-            >Resume</a
           >
+            Resume
+          </a>
         </nav>
         <!-- Hamburger (Mobile) -->
         <button
@@ -173,7 +194,7 @@
         <!-- Resume button -->
         <a
           href="/resume.pdf"
-          download
+          target="_blank"
           class="block px-4 py-2 mt-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-center font-medium transition-colors"
         >
           Resume
@@ -181,70 +202,144 @@
       </nav>
     </header>
 
-<!-- MAIN CONTENT -->
-<main class="pt-40 md:pt-40 pb-24 max-w-6xl mx-auto px-6">
-  <h1 class="text-4xl font-bold mb-10 text-gray-900 dark:text-white text-center">
-    My Projects
-  </h1>
+    <!-- MAIN CONTENT -->
+    <main class="pt-40 md:pt-40 pb-24 max-w-6xl mx-auto px-6">
+      <h1
+        class="text-4xl font-bold mb-10 text-gray-900 dark:text-white text-center"
+      >
+        My Projects
+      </h1>
 
-  <div class="grid md:grid-cols-2 gap-8">
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Portfolio Website -->
+        <a
+          href="/home.html"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            Portfolio Website
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            HTML • CSS • JavaScript • Tailwind
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            A modern personal portfolio with animations, dark mode & responsive
+            layout.
+          </p>
+        </a>
 
-    <!-- Portfolio Website -->
-    <a href="/home.html" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Portfolio Website</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript • Tailwind</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">A modern personal portfolio with animations, dark mode & responsive layout.</p>
-    </a>
+        <!-- TextUtils Web App -->
+        <a
+          href="https://txt-util.netlify.app/?"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            TextUtils Web App
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            HTML • CSS • JavaScript • React • Tailwind
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Analyze & manipulate text: word count, uppercase, lowercase, copy,
+            clear, etc.
+          </p>
+        </a>
 
-    <!-- TextUtils Web App -->
-    <a href="https://txt-util.netlify.app/?" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">TextUtils Web App</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript • React • Tailwind</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Analyze & manipulate text: word count, uppercase, lowercase, copy, clear, etc.</p>
-    </a>
+        <!-- PDF Merger App -->
+        <a
+          href="https://pdfmergerapp2025.netlify.app/"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            PDF Merger App
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            HTML • CSS • JavaScript
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Merge multiple PDF files into a single file directly in the browser.
+          </p>
+        </a>
 
-    <!-- PDF Merger App -->
-    <a href="https://pdfmergerapp2025.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">PDF Merger App</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript </p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Merge multiple PDF files into a single file directly in the browser.</p>
-    </a>
+        <!-- iTask / ToDo App -->
+        <a
+          href="https://tasklistitems.netlify.app/"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            iTask / ToDo App
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            HTML • CSS • JavaScript • React • Tailwind
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Manage daily tasks with add, edit, delete, and local storage
+            features.
+          </p>
+        </a>
 
-    <!-- iTask / ToDo App -->
-    <a href="https://tasklistitems.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">iTask / ToDo App</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript • React • Tailwind</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Manage daily tasks with add, edit, delete, and local storage features.</p>
-    </a>
+        <!-- Currency Converter App -->
+        <a
+          href="https://currencyappconverter.netlify.app/"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            Currency Converter App
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            HTML • CSS • JavaScript • API
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Convert currencies in real-time using live exchange rates from API.
+          </p>
+        </a>
 
-    <!-- Currency Converter App -->
-    <a href="https://currencyappconverter.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Currency Converter App</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript  • API</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Convert currencies in real-time using live exchange rates from API.</p>
-    </a>
+        <!-- Unit Converter App -->
+        <a
+          href="https://converter-unit-app.netlify.app/"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            Unit Converter App
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            HTML • CSS • JavaScript
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Convert units of length, weight, temperature, and more with ease.
+          </p>
+        </a>
 
-    <!-- Unit Converter App -->
-    <a href="https://converter-unit-app.netlify.app/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Unit Converter App</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">HTML • CSS • JavaScript </p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Convert units of length, weight, temperature, and more with ease.</p>
-    </a>
+        <!-- Internship Project -->
+        <a
+          href="https://house-price-predictor-blhf.onrender.com/"
+          target="_blank"
+          class="glass hover:scale-105 transition-transform duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
+            House Price Prediction
+          </h2>
+          <p class="text-gray-700 dark:text-gray-300 mb-2">
+            Python • Machine Learning • Data Science
+          </p>
+          <p class="text-sm text-gray-500 dark:text-gray-400">
+            Internship project predicting Bangalore house prices using ML
+            models.
+          </p>
+        </a>
+      </div>
+    </main>
+    <!-- FOOTER -->
+    <footer class="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
+      Built with ❤️ • HTML • JavaScript • Tailwind
+    </footer>
 
-    <!-- Internship Project -->
-    <a href="https://house-price-predictor-blhf.onrender.com/" target="_blank" class="glass hover:scale-105 transition-transform duration-300">
-      <h2 class="text-xl font-semibold mb-2 text-gray-900 dark:text-white">House Price Prediction</h2>
-      <p class="text-gray-700 dark:text-gray-300 mb-2">Python • Machine Learning • Data Science</p>
-      <p class="text-sm text-gray-500 dark:text-gray-400">Internship project predicting Bangalore house prices using ML models.</p>
-    </a>
-
-  </div>
-</main>
-  <!-- FOOTER -->
-  <footer class="py-8 text-center text-sm text-gray-500 dark:text-gray-400">
-   Built with ❤️ • HTML • JavaScript • Tailwind
-  </footer>
-
-  <script src="projects.js"></script>
-</body>
+    <script src="projects.js"></script>
+  </body>
 </html>

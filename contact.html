@@ -12,6 +12,7 @@
     tailwind.config = { darkMode: "class" };
   </script>
 
+  <!-- prettier-ignore -->
   <style>
     /* Animations & Utilities */
     .float-1 { animation: float 7s ease-in-out infinite; }
@@ -82,12 +83,14 @@
           <button id="themeToggle" class="ml-4 p-2 rounded-md glass">
             🌙 Dark Mode
           </button>
-          <a
-            href="/resume.pdf"
-            download
-            class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white"
-            >Resume</a
-          >
+        <a
+  href="/resume.pdf"
+  target="_blank"
+  class="ml-4 px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white"
+>
+  Resume
+</a>
+
         </nav>
         <!-- Hamburger (Mobile) -->
         <button
@@ -131,7 +134,6 @@
       </div>
 
       <!-- Mobile Menu -->
-      <!-- Mobile Menu -->
       <nav
         id="mobileMenu"
         class="md:hidden hidden flex-col gap-3 p-4 mb-2 rounded-b-xl shadow-xl absolute top-full left-0 w-[calc(100%-2rem)] mx-4 z-30 bg-gradient-to-b from-indigo-50 via-white/30 to-cyan-50 dark:from-[#0b0b0d] dark:via-[#0b0b0d]/70 dark:to-[#111]"
@@ -169,13 +171,14 @@
         </button>
 
         <!-- Resume button -->
-        <a
-          href="/resume.pdf"
-          download
-          class="block px-4 py-2 mt-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-center font-medium transition-colors"
-        >
-          Resume
-        </a>
+   <a
+  href="/resume.pdf"
+  target="_blank"
+  class="block px-4 py-2 mt-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-center font-medium transition-colors"
+>
+  Resume
+</a>
+
       </nav>
     </header>
 
@@ -188,7 +191,7 @@
     </p>
 
     <div class="glass max-w-xl mx-auto space-y-4">
-      <!-- Email -->
+ 
      <!-- Email -->
 <p class="text-lg text-gray-900 dark:text-gray-100 flex items-center gap-2">
   <!-- Email Icon -->
